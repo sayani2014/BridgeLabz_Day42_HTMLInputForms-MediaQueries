@@ -1,6 +1,7 @@
 /**
- * As a User need to enter a valid First Name
-    - First name starts with Cap and has minimum 3 characters
+ * As a User need to enter a valid email 
+    - E.g. abc.xyz@bl.co.in 
+    - Email has 3 mandatory parts (abc, bl & co) and 2 optional (xyz & in) with precise @ and . positions
  * 
  * @author : SAYANI KOLEY
  * @since : 27.07.2021
@@ -30,4 +31,17 @@ text.addEventListener('input', function() {
     else textError.textContent = "Name is Incorrect";
 });
 
+/**
+ * To validate the email field using the REGEX expression
+ */
+
+ const email = document.querySelector('#email');
+ const emailError = document.querySelector('.email-error');
+ text.addEventListener('input', function() {
+     let emailRegex = RegExp("^[A-Za-z0-9!#$%&*+\\\\=?`{|}~^-]+(?:\\.[A-Za-z!#$%&*+\\\\=?`{|}~^-]+)*@(?:([0-9-]{1}|[a-zA-Z]{3,5})\\.)+[a-zA-Z]{2,3}$");
+     if(emailRegex.test(email.value))
+         emailError.emailContent = "";
+     else emailError.emailContent = "Email is Incorrect";
+ });
+ 
 
