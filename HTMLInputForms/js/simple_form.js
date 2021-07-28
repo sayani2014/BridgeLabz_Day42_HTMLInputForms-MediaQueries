@@ -1,10 +1,7 @@
 /**
- * As a User need to follow pre-defined Password rules.
-    Rule1 – minimum 8 Characters
-    Rule2 – Should have at least 1 Upper Case
-    Rule3 – Should have at least 1 numeric number in the password
-    Rule4 – Has exactly 1 Special Character 
-    NOTE – All rules must be passed
+ * As a User need to follow pre-defined Mobile Format 
+    - E.g. 91 9919819801 
+    - Country code follow by space and 10 digit number
  * 
  * @author : SAYANI KOLEY
  * @since : 27.07.2021
@@ -58,18 +55,18 @@ var number = document.getElementById("number");
 var length = document.getElementById("length");
 
 // When the user clicks on the password field, show the message box
-myInput.onfocus = function() {
-  document.getElementById("message").style.display = "block";
-}
+// myInput.onfocus = function() {
+//   document.getElementById("message").style.display = "block";
+// }
 
 // When the user clicks outside of the password field, hide the message box
-myInput.onblur = function() {
-  document.getElementById("message").style.display = "none";
-}
+// myInput.onblur = function() {
+//   document.getElementById("message").style.display = "none";
+// }
 
 // When the user starts to type something inside the password field
 myInput.onkeyup = function() {
-    // Validate lowercase letters
+    // Validate special characters
     var specialCharacters = /[@#$%^&+=]/g;
     if(myInput.value.match(specialCharacters)) {  
         letter.classList.remove("invalid");
@@ -106,5 +103,32 @@ myInput.onkeyup = function() {
     } else {
         length.classList.remove("valid");
         length.classList.add("invalid");
+    }
+}
+
+/**
+ * To validate the mobile field using the REGEX expression
+ */
+
+// When the user starts to type something inside the number field
+var myInput1 = document.getElementById("tel");
+myInput1.onkeyup = function() {
+    // Validate numbers
+    var numbers = /[0-9]/g;
+    if(myInput1.value.match(numbers)) {  
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+    } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
+    }
+    // Validate space
+    var space = /[\s]/g;
+    if(myInput1.value.match(space)) {  
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+    } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
     }
 }
