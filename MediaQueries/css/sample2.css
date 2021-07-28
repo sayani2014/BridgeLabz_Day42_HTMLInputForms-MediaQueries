@@ -1,0 +1,12 @@
+nav {
+    block-size: 5rem;
+    background: red;
+
+  }
+@media (min-height: 30rem) {
+  nav {
+       background: orange;
+       position: sticky;
+       top: 0;
+  }
+}
